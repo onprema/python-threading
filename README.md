@@ -29,6 +29,7 @@ make run
 
 ## Tips and Notes
 
-* To view the threads as a program is running: `htop` -> `F2` -> `Show custom thread names`
+* To view the threads as a program is running with `htop`: `htop` -> `F2` -> `Show custom thread names`
+* To view the threads as a program is running `ps`: `ps -elF`
 * Show information about the current thread: `threading.current_thread()`
 * *Green threads* are scheduled by the Python process, as opposed to a system-level thread scheduled by the OS.

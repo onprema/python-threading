@@ -3,6 +3,7 @@ import requests
 import time
 import threading
 import ssl
+from datetime import datetime as dt
 
 
 WEBSITES = [
@@ -49,6 +50,13 @@ def visit_website(url):
 
 
 
+def log_website(url):
+    """Makes a request to a url and writes a log"""
+    basename = url.split('.')[1]
+    while True:
+        time.sleep(1)
+        with open(f'{basename}.log', 'a') as log:
+            log.write(f'{dt.now()}\n')
 
 
 

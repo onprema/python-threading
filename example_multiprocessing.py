@@ -7,11 +7,18 @@ def countdown(n):
         n -= 1
 
 if __name__ == '__main__':
-    pool = Pool(processes=2)
+    processes = 2
+    pool = Pool(processes=processes)
     start = time.time()
-    r1 = pool.apply_async(countdown, [COUNT//2])
-    r2 = pool.apply_async(countdown, [COUNT//2])
+    r1 = pool.apply_async(countdown, [COUNT//processes])
+    r2 = pool.apply_async(countdown, [COUNT//processes])
     pool.close()
     pool.join()
     end = time.time()
-    print('Time taken in seconds -', end - start)
+    print('Time taken in seconds (multiprocessing) -', end - start)
+
+    # Single process
+    start = time.time()
+    countdown(COUNT)
+    end = time.time()
+    print('Time taken in seconds (default processing) -', end - start)

@@ -1,7 +1,7 @@
 # Example of a multi-threaded application using start() and join()
 import threading
 
-chunks = ['abcdefghij', 'klmnopqrs', 'tuvwxyz']
+chunks = ['abcdefghij', 'klmnopqrs', 'tuvwxyz\n']
 threads = []
 
 def writer(chunk):
@@ -10,12 +10,16 @@ def writer(chunk):
 
 if __name__ == '__main__':
     print('Main thread starting')
+
     for chunk in chunks:
         t = threading.Thread(target=writer, args=[chunk])
-        t.start()
         threads.append(t)
+        t.start()
+
     for thread in threads:
         thread.join()
+
     with open('alphabet.txt') as f:
         print(f.read())
+
     print('Main thread ending')

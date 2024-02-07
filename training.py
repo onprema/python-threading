@@ -54,7 +54,7 @@ def log_website(url):
     """Makes a request to a url and writes a log"""
     basename = url.split('.')[1]
     while True:
-        time.sleep(1)
+        time.sleep(0.25)
         with open(f'{basename}.log', 'a') as log:
             log.write(f'{dt.now()}\n')
 

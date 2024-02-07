@@ -20,10 +20,9 @@ All of the source code will be located in the `/src` directory in the container.
 docker run -it --mount type=bind,source=$$(pwd),target=/src py3-threads bash
 ```
 
-If you have `make` you can use the following commands to automate the build and run commands:
+If you have `make` you can use the following command to automate the build and run commands:
 
 ```
-make build
 make run
 ```
 

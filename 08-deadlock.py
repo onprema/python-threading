@@ -1,4 +1,5 @@
-# Example of a deadlock situation
+# Example of a deadlock situation.
+# Threads within a process share the same memory space.
 import threading
 
 

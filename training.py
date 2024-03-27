@@ -41,6 +41,7 @@ def visit_website(url):
     try:
         response = requests.get(url) 
         print(f'{url} returned {response.status_code} after {response.elapsed} seconds')
+        return response.elapsed
     except Exception as e:
         print(f'Failed to connect to {url}')
         pass
@@ -72,17 +73,17 @@ class Account():
     def deposit(self, amount):
         print(f'Depositing {amount}')
         # Simulates a database read and write
-        state = self.balance
+        state = self.balance # 0
         time.sleep(0.1)
         state += amount
-        self.balance = state
+        self.balance = state # 100
 
     def withdrawal(self, amount):
         print(f'Withdrawing {amount}')
         # Simulates a database read and write
-        state = self.balance
+        state = self.balance # 100 or 0
         time.sleep(0.1)
-        state -= amount
+        state -= amount # 50, -50
         self.balance = state
 
 
@@ -109,15 +110,17 @@ class ThreadSafeAccount():
         with self.lock:
             state = self.balance
             state += amount
-            time.sleep(0.1)
             self.balance = state
+            time.sleep(5)
 
     def withdrawal(self, amount):
         print(f'Withdrawaling {amount}')
 
         # Limit access to shared data to only one thread at a time
+        # is self.lock acquired?
+        # once self.lock is released, 
         with self.lock:
             state = self.balance
             state -= amount
-            time.sleep(0.1)
             self.balance = state
+            time.sleep(5)

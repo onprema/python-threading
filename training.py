@@ -21,8 +21,6 @@ WEBSITES = [
     'https://www.jpf.go.jp/e/',
     'https://www.oreilly.com/',
     'https://www.parliament.nz/en/',
-    'https://www.peru.gob.pe/',
-    'https://www.premier.gov.pl/en.html',
     'https://www.presidence.gov.mg/',
     'https://www.saskatchewan.ca/'
 ]

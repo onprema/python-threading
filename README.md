@@ -17,7 +17,7 @@ docker run -it py3-threads bash
 All of the source code will be located in the `/src` directory in the container. To sync this directory with your working directory when you run the container, use this command:
 
 ```
-docker run -it --mount type=bind,source=$$(pwd),target=/src py3-threads bash
+docker run -it --mount type=bind,source=$(pwd),target=/src py3-threads bash
 ```
 
 If you have `make` you can use the following command to automate the build and run commands:

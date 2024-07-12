@@ -1,6 +1,7 @@
 # Source: https://learning.oreilly.com/library/view/fluent-python-2nd/9781492056348/ch19.html#idm46582392974816
 import itertools
 import time
+import requests
 from threading import Event, Thread
 
 
@@ -21,7 +22,9 @@ def slow() -> int:
     slow() will be called by the main thread. Imagine this is a slow API call over the network. Calling sleep blocks the main thread, but the GIL is released so the spinner thread can proceed.
     """
     time.sleep(3)
-    return 42
+    url = "https://www.random.org/integers/?num=1&min=1&max=100&col=1&base=10&format=plain&rnd=new"
+    response = requests.get(url)
+    return response.text.strip()
 
 def supervisor() -> int:
     done = Event()

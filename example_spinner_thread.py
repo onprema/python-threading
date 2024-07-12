@@ -21,7 +21,7 @@ def slow() -> int:
     slow() will be called by the main thread. Imagine this is a slow API call over the network. Calling sleep blocks the main thread, but the GIL is released so the spinner thread can proceed.
     """
     time.sleep(3)
-    return 108
+    return 42
 
 def supervisor() -> int:
     done = Event()

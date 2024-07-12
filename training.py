@@ -109,7 +109,6 @@ class ThreadSafeAccount():
             state = self.balance
             state += amount
             self.balance = state
-            time.sleep(5)
 
     def withdrawal(self, amount):
         print(f'Withdrawaling {amount}')
@@ -121,4 +120,3 @@ class ThreadSafeAccount():
             state = self.balance
             state -= amount
             self.balance = state
-            time.sleep(5)

@@ -12,10 +12,12 @@ if __name__ == '__main__':
     print('Main thread starting')
 
     for chunk in chunks:
+        # Create and start all threads (in order)
         t = threading.Thread(target=writer, args=[chunk])
         threads.append(t)
         t.start()
 
+    # Wait for all threads to finish
     for thread in threads:
         thread.join()
 

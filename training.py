@@ -7,7 +7,7 @@ from datetime import datetime as dt
 
 
 WEBSITES = [
-    'http://mfa.go.th/main/',
+    'http://mfa.go.th/',
     'http://www.antarctica.gov.au/',
     'http://www.mofa.gov.la/',
     'http://www.presidency.gov.gh/',
